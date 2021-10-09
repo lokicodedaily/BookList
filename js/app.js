@@ -35,14 +35,17 @@ class UI {
   }
 
   static showAlert(message, className) {
+    const divParent = document.createElement("div");
     const div = document.createElement("div");
+    divParent.appendChild(div);
+    divParent.className="parent";
     div.className = `alert alert-${className}`;
     div.appendChild(document.createTextNode(message));
     const container = document.querySelector(".container");
     const form = document.querySelector(".book-form");
-    container.insertBefore(div, form);
+    container.insertBefore(divParent, form);
     //vanish in 2sec;
-    setTimeout(() => document.querySelector(".alert").remove(), 2000);
+    setTimeout(() => document.querySelector(".alert").remove(),2000);
   }
 
   static clearFields() {
